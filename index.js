@@ -9,8 +9,9 @@ async function fetchData(username) {
     const response = await axios.get(url + "/" + username);
     console.log(response.data);
     createCard(response.data);
-    console.log(response.data)
+   
   } catch (error) {
+    console.log(error);
     if (error) {
         const errors = 
         ` <h2 class = "error">User not found</h2>`
@@ -57,8 +58,6 @@ form.addEventListener("submit", (e) => {
     fetchData(user);
     
     fetchRepos(user);
-  }else{
-   
   }
 });
 
@@ -79,7 +78,9 @@ const createCard = (user) => {
 
                         <div class = "details">
                             <h2><strong>${user.name}</strong></h2>
-                            <h3>${user.login}</h3>
+                            <h3>username: ${user.login}</h3>
+                            
+                            <h3>twitter: ${user.twitter_username}</h3>
                             <p>${user.location}</p>
                         </div>
 
@@ -118,7 +119,7 @@ const createCard = (user) => {
                 </div>
                 </section>
    
-    
+    <div class = "links"></div>
 </section>`;
 
   main.innerHTML = userCard;
