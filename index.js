@@ -1,6 +1,8 @@
 const search = document.getElementById("search");
 const form = document.querySelector("form");
 
+
+
 const url = "https://api.github.com/users";
 const main = document.querySelector("#cards");
 
@@ -64,7 +66,8 @@ form.addEventListener("submit", (e) => {
 
 
 const createCard = (user) => {
-    
+    const date = new Date(user.created_at)
+    const dateCreated = date.toISOString().slice(0, 10)
   const userCard = `
  
     <section class="section">
@@ -117,9 +120,15 @@ const createCard = (user) => {
                     <h2>Repositories</h2>
                     <p class ="links"></p>
                 </div>
+
+                <div class=date>
+                <p>Date Created : ${dateCreated}<p/>
+                </div>
                 </section>
    
     <div class = "links"></div>
+
+   
 </section>`;
 
   main.innerHTML = userCard;

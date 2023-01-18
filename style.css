@@ -148,3 +148,9 @@ h2{
     font-size: 1.5em;
     font-weight: bold;
 }
+
+.date{
+    text-align: center;
+    font-style: italic;
+    font-size: 1.2em;
+}
